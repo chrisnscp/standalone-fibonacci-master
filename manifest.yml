@@ -1,0 +1,12 @@
+applications:
+  .:
+   name: fibonacci
+   mem: 128M
+   services:
+    ${name}-db:
+      type: mysql
+   stackato:
+    min_version:
+        client: 1.4.3
+    hooks:
+        post-staging: python create_populate_db.py
